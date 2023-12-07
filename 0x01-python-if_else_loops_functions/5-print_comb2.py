@@ -1,3 +1,7 @@
 #!/usr/bin/python3
-for num in range(0, 100):
-    print("{:02d}".format(num), end='\n' if num == 99 else ", ")
+for x in range (0,10):
+    for y in range (0,10):
+        if (x == 9 and y == 9):
+            print(f"{x}{y}")
+            break
+        print(f"{x}{y}", end = ', ')
