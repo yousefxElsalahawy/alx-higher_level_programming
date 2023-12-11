@@ -2,7 +2,7 @@
 
 def print_matrix_integer(matrix=[[]]):
 
-    for x in matrix:
-        for y in x:
-            print("{:d}".format(y), end = " " if x.index(y) != len(x)-1 else "$" )
+    for _, x in enumerate(matrix):
+        for j, y in enumerate(x):
+            print("{:d}".format(y), end = " " if j != len(x)-1 else "$" )
         print("")
