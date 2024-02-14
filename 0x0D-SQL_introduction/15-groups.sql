@@ -1,4 +1,5 @@
--- List number of records with same score in 'second_table'
-SELECT score, COUNT(1) AS number FROM second_table
-GROUP BY score
-ORDER BY number DESC;
+-- Number by score
+-- lists the number of records with the same score
+SELECT score, COUNT(score) AS number FROM second_table
+    GROUP BY score
+    ORDER BY score DESC;

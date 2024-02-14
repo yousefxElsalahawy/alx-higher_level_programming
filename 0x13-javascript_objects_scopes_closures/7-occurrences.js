@@ -1,5 +1,8 @@
 #!/usr/bin/node
-
 exports.nbOccurences = function (list, searchElement) {
-  return list.reduce((a, v) => (v === searchElement ? a + 1 : a), 0);
+  const reducer = function (count, value) {
+    count += (value === searchElement) ? 1 : 0;
+    return count;
+  };
+  return list.reduce(reducer, 0);
 };

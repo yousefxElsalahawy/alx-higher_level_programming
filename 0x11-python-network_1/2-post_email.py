@@ -1,16 +1,13 @@
 #!/usr/bin/python3
-"""Sends a POST request to a given URL with a given email.
-"""
-import sys
-import urllib.parse
-import urllib.request
+"""takes url & email, sends a POST request and displays the response"""
+from urllib import request, parse
+from sys import argv
 
 
-if __name__ == "__main__":
-    url = sys.argv[1]
-    value = {"email": sys.argv[2]}
-    data = urllib.parse.urlencode(value).encode("ascii")
-
-    request = urllib.request.Request(url, data)
-    with urllib.request.urlopen(request) as response:
-        print(response.read().decode("utf-8"))
+if len(argv) > 2:
+    email = {'email': argv[2]}
+    data = parse.urlencode(email).encode('ascii')
+    req = request.Request(argv[1], data)
+    with request.urlopen(req) as response:
+        r = response.read()
+        print(r.decode('utf-8'))

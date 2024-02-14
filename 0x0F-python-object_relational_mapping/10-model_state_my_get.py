@@ -1,32 +1,21 @@
 #!/usr/bin/python3
+'''
+prints the State object with the name passed as argument
+'''
 
-""" 10-model_state_my_get module """
 
-if __name__ == "__main__":
+from sys import argv
+from sqlalchemy import create_engine
+from sqlalchemy.orm import sessionmaker
+from model_state import State
 
-    from sqlalchemy import create_engine
-    from sqlalchemy.ext.declarative import declarative_base
-    from sqlalchemy.orm import sessionmaker
-    import sys
-    from model_state import Base, State
 
-    inp = sys.argv
-    if len(inp) < 5 or ";" in inp[4]:
-        exit(1)
+if __name__ == '__main__':
+    engine = create_engine(
+        'mysql+mysqldb://{}:{}@localhost/{}'.format(argv[1], argv[2], argv[3]))
+    InstanceSession = sessionmaker(bind=engine)
+    session = InstanceSession()
 
-    conn_str = "mysql+mysqldb://{}:{}@localhost:3306/{}"
-    engine = create_engine(conn_str.format(inp[1], inp[2], inp[3]))
-    Session = sessionmaker(engine)
-
-    Base.metadata.create_all(engine)
-
-    session = Session()
-
-    my_query = session.query(State).filter(State.name.like(inp[4])).all()
-
-    if len(my_query) == 0:
-        print("Not found")
-    else:
-        print(my_query[0].id)
-
+    state = session.query(State).filter(State.name == argv[4]).first()
+    print('Not found' if not state else state.id)
     session.close()

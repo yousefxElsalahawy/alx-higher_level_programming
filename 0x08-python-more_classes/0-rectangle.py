@@ -1,9 +1,7 @@
 #!/usr/bin/python3
-"""
-Defines an empty Rectangle class.
-"""
+""" Class Rectangle """
 
 
 class Rectangle:
-    """Empty Rectangle class."""
+    """ Empty class Rectangle """
     pass

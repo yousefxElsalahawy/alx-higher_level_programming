@@ -1,3 +1,3 @@
--- Delete the database 'hbtn_0c_0'
--- If 'hbtn_0c_0' doesn't exist, script should not fail
+-- Deletes a database
+-- Query to delete the database hbtn_0c_0 in MySQL server
 DROP DATABASE IF EXISTS hbtn_0c_0;

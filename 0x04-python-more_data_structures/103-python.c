@@ -1,4 +1,3 @@
-
 #include <Python.h>
 #include <object.h>
 #include <listobject.h>
@@ -48,5 +47,3 @@ void print_python_list(PyObject *p)
                         print_python_bytes(list->ob_item[i]);
         }
 }
-
-

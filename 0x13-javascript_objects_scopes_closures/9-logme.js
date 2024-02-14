@@ -1,9 +1,8 @@
 #!/usr/bin/node
-
 exports.logMe = function (item) {
-  if (typeof this.count === 'undefined') {
+  if (!this.count) {
     this.count = 0;
   }
-  console.log(this.count + ': ' + item);
+  console.log(`${this.count}: ${item}`);
   this.count++;
 };

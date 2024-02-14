@@ -1,21 +1,20 @@
 #!/usr/bin/python3
-"""Magic class from a given ByteCode."""
+""" Class form python bytecode for magic objects"""
 import math
 
 
 class MagicClass:
-    """Initialization of the MagicClass."""
+    """Class constructor"""
     def __init__(self, radius=0):
-        """magic class constructor"""
-        self._MagicClass__radius = 0
+        self.__radius = 0
         if type(radius) is not int and type(radius) is not float:
-            raise TypeError("radius must be a number")
-        self._MagicClass__radius = radius
+            raise TypeError('radius must be a number')
+        self.__radius = radius
 
+    """Return the area"""
     def area(self):
-        """Calculation of the area."""
-        return self._MagicClass__radius ** 2 * math.pi
+        return self.__radius ** 2 * math.pi
 
+    """Return circumference"""
     def circumference(self):
-        """Calculation of the circumference."""
-        return 2 * math.pi * self._MagicClass__radius
+        return 2 * math.pi * self.__radius
