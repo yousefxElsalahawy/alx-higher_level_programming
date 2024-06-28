@@ -1,4 +1,4 @@
-// #!/usr/bin/node
+#!/usr/bin/node
 
 if(parseInt(process.argv[2]))
 { 
@@ -10,3 +10,4 @@ if(parseInt(process.argv[2]))
   console.log('Missing number of occurrences');
 }
   
+
